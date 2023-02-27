@@ -3,42 +3,57 @@ import LineGradient from "../components/LineGradient";
 import { motion } from "framer-motion";
 import project from '../assets/project-1.jpeg'
 import project2 from '../assets/project-2.jpeg'
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const container = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
 
-const projectVariant = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1 },
-  
-};
 
-const Project = ({ title }) => {
-  const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
-    bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
-  const projectTitle = title.split(" ").join("-").toLowerCase();
+const Project = ({ Img,GitLink,tittle }) => {
+
 
   return (
-    <motion.div 
-     
-    variants={projectVariant} 
+   <>
+<motion.div className='group relative overflow-hidden border-2 border-white/50 rounded-xl'
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  transition={{ duration: 0.3 }}
+  variants={{
+    visible: { opacity: 1, scale: 1 },
+    hidden: { opacity: 0, scale: 0 }
+  }}
+>
     
-    className="relative">
-      <div className={overlayStyles}>
-       
-        <p className="mt-7">
-          Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla
-          porttitor accumsan tincidunt.
-        </p>
+    <div className='group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300'></div>
+    <img src={Img} className='group-hover:scale-125 transition-all duration-500  object-cover w-full'/>
+    <div className='absolute -bottom-full left-1/2 group-hover:top-10 transition-all duration-500 z-50'>
+  
+      <span className='text-yellow text-lg lg:text-2xl cursor-pointer hover:text-red'>{tittle}</span> 
+     
       </div>
-      <img src={title} alt={projectTitle} />
+    <motion.div className='absolute -bottom-full left-5 group-hover:bottom-10 transition-all duration-500 z-50'>
+  
+    <a
+      className=" transition duration-500"
+      href="https://www.linkedin.com/in/bulbul-rahman-38420b237"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span className='text-grey text-lg lg:text-2xl cursor-pointer hover:text-red'>Live Demo</span> 
+    </a>
+      
+      </motion.div>
+    <div className='absolute -bottom-full right-5 group-hover:bottom-10 transition-all duration-500 z-50'>
+    <a
+      className=" transition duration-500"
+      href={GitLink}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span className='text-grey text-lg lg:text-2xl cursor-pointer hover:text-red'>Link</span> 
+      </a>
+      </div>
     </motion.div>
+   </>
   );
 };
 
@@ -71,37 +86,41 @@ const Projects = () => {
     </motion.div>
 
     {/* PROJECTS */}
-    <div className="flex justify-center">
+  <div>
+    <div className='flex-1 flex flex-col gap-y-12 mb-10 lg:mb-0  '>
       <motion.div
-        className="sm:grid sm:grid-cols-3"
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5 }}
+      variants={{
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 },
+      }}
       >
-        {/* ROW 1 */}
-        <div
-          className="flex justify-center text-center items-center p-10 bg-red
-            max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
-        >
-          BEAUTIFUL USER INTERFACES
-        </div>
-        <Project title={project} />
-        <Project title={project2} />
-
-      
-
-        {/* ROW 3 */}
-        <Project title="Project 6" />
-        <Project title="Project 7" />
-        <div
-          className="flex justify-center text-center items-center p-10 bg-blue
-            max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
-        >
-          SMOOTH USER EXPERIENCE
-        </div>
+        <h1 className=' leading-tight text-yellow font-playfair mb-10 font-semibold text-4xl text-center md:text-center' >
+          My Lastest <br/>
+          work
+        </h1>
+          <div className='text-center md:text-center mb-10'>
+        <AnchorLink
+            className="bg-gradient-rainblue text-deep-blue  py-3 px-4 rounded-full font-semibold
+              hover:bg-blue hover:text-white transition duration-500 "
+              href="#contact"
+          >
+            View My All Project
+          </AnchorLink>
+          </div>
       </motion.div>
+     <div className='flex flex-col gap-10  lg:grid lg:grid-cols-3 lg:gap-4 '>
+      
+      <Project Img={project2} GitLink={"https://www.linkedin.com/in/bulbul-rahman-38420b237"} tittle='My-Commerce'/>
+      <Project Img={project2} GitLink={"https://www.linkedin.com/in/bulbul-rahman-38420b237"} />
+      <Project Img={project2} GitLink={"https://www.linkedin.com/in/bulbul-rahman-38420b237"} />
+      </div> 
+      
     </div>
+  </div>
   </section>
   )
 }

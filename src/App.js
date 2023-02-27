@@ -3,10 +3,12 @@ import useMediaQuery from "./hook/useMediaQuery";
 import DotGroup from "./scenes/DotGroup";
 import Landing from "./scenes/Landing";
 import Projects from "./scenes/Projects";
+import Contact from "./scenes/Contact";
 import { motion } from "framer-motion";
 
 import Navbar from "./scenes/Navbar";
 import MySkills from "./scenes/MySkills";
+import Testimonials from "./scenes/Testimonials";
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home");
   const isAboveMediaScreens = useMediaQuery("(min-width:1060px)");
@@ -65,6 +67,26 @@ const App = () => {
           <Projects />
         </motion.div>
       </div>
+      <div className="w-5/6 mx-auto">
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onClick={() => setSelectedPage("testimonials")}
+        >
+          <Testimonials />
+        </motion.div>
+      </div>
+
+      <div className="w-5/6 mx-auto">
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onClick={() => setSelectedPage("contact")}
+        >
+          <Contact />
+        </motion.div>
+      </div>
+      
     </div>
   );
 };

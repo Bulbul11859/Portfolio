@@ -59,7 +59,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.2 }}>
               <Link
-                page="Testimonial"
+                page="Testimonials"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />
