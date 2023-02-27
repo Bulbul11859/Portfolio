@@ -7,7 +7,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
 
-const Project = ({ Img,GitLink,tittle }) => {
+const Project = ({ Img,GitLink,tittle,LiveLink }) => {
 
 
   return (
@@ -25,18 +25,19 @@ const Project = ({ Img,GitLink,tittle }) => {
     
     <div className='group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300'></div>
     <img src={Img} className='group-hover:scale-125 transition-all duration-500  object-cover w-full'/>
-    <div className='absolute -bottom-full left-1/2 group-hover:top-10 transition-all duration-500 z-50'>
+    <div className='absolute -bottom-full left-1/4 group-hover:top-10 transition-all duration-500 z-50'>
   
-      <span className='text-yellow text-lg lg:text-2xl cursor-pointer hover:text-red'>{tittle}</span> 
+      <span className=' text-amber-200 text-lg lg:text-2xl cursor-pointer hover:text-red'>{tittle}</span> 
      
       </div>
     <motion.div className='absolute -bottom-full left-5 group-hover:bottom-10 transition-all duration-500 z-50'>
   
     <a
       className=" transition duration-500"
-      href="https://www.linkedin.com/in/bulbul-rahman-38420b237"
+      href= {LiveLink}
       target="_blank"
       rel="noreferrer"
+     
     >
       <span className='text-grey text-lg lg:text-2xl cursor-pointer hover:text-red'>Live Demo</span> 
     </a>
@@ -114,9 +115,9 @@ const Projects = () => {
       </motion.div>
      <div className='flex flex-col gap-10  lg:grid lg:grid-cols-3 lg:gap-4 '>
       
-      <Project Img={project2} GitLink={"https://www.linkedin.com/in/bulbul-rahman-38420b237"} tittle='My-Commerce'/>
-      <Project Img={project2} GitLink={"https://www.linkedin.com/in/bulbul-rahman-38420b237"} />
-      <Project Img={project2} GitLink={"https://www.linkedin.com/in/bulbul-rahman-38420b237"} />
+      <Project Img={project2} LiveLink={"https://www.youtube.com/watch?v=00OvLVaItAM"} GitLink={"https://github.com/Bulbul11859/trali_ecommerce"} tittle='Trali Ecommerce'/>
+      <Project Img={project2} LiveLink={"https://main--endearing-torte-f86772.netlify.app"} GitLink={"https://github.com/Bulbul11859/HomeLand"} tittle='HomeLand'/>
+      <Project Img={project2} LiveLink={"https://musical-empanada-7e4f1e.netlify.app"} GitLink={"https://github.com/Bulbul11859/Orebi_Ecommerce"} tittle='Orebi Ecommerce'/>
       </div> 
       
     </div>
